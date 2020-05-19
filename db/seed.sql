@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS drinkers;
-DROP TABLE IF EXISTS cellar; 
+-- - DROP TABLE IF EXISTS drinkers;
+-- - DROP TABLE IF EXISTS cellar; 
 
 -- DRINKERS
 CREATE TABLE drinkers (
@@ -20,15 +20,15 @@ CREATE TABLE cellar (
     brand TEXT, 
     name TEXT, 
     type TEXT, 
-    origin TEXT, 
+    origin VARCHAR, 
     notes TEXT
 ); 
 
 INSERT INTO cellar (drinker_id, brand, name, type, origin, notes)
 VALUES
-(1, 'Aridus', 'Tank 9', 'Red Blend', "Phoenix, Arizona", "Full body, very smooth"), 
-(1, 'Foppiano Vineyards', 'Petite Sirah', 'Red', "Russian River Valley, California", "Full body, hints of cherry on the nose, light on sweetness"), 
-(1, 'Quilt', 'Cabernet Sauvignon ', 'Red', "Napa Valley, California", "Lighter in body, very smooth, not acidic"); 
+(1, 'Aridus', 'Tank 9', 'Red Blend', 'Phoenix, Arizona', 'Full body, very smooth'), 
+(1, 'Foppiano Vineyards', 'Petite Sirah', 'Red', 'Russian River Valley, California', 'Full body, hints of cherry on the nose, light on sweetness'), 
+(1, 'Quilt', 'Cabernet Sauvignon ', 'Red', 'Napa Valley, California', 'Lighter in body, very smooth, not acidic'); 
 
 SELECT * FROM drinkers; 
 SELECT * FROM cellar; 
