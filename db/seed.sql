@@ -1,7 +1,8 @@
--- - DROP TABLE IF EXISTS drinkers;
--- - DROP TABLE IF EXISTS cellar; 
+---DELETE TABLE 
+DROP TABLE IF EXISTS drinkers;
+DROP TABLE IF EXISTS cellar; 
 
--- - DRINKERS
+---DRINKERS
 CREATE TABLE drinkers (
     drinker_id SERIAL PRIMARY KEY, 
     name VARCHAR(30), 
@@ -14,10 +15,10 @@ VALUES
 ('Monica', 'm@fakemail.com', 'password'); 
 
 
--- - WINE
+---WINE
 CREATE TABLE wine (
     wine_id SERIAL PRIMARY KEY, 
-    year YEAR, 
+    year INT, 
     vineyard TEXT, 
     name TEXT, 
     color TEXT, 
@@ -30,8 +31,8 @@ VALUES
 (2001, 'Foppiano Vineyards', 'Petite Sirah', 'Red', 'Russian River Valley, California'), 
 (2008, 'Quilt', 'Cabernet Sauvignon ', 'Red', 'Napa Valley, California'); 
 
---todo finish off this table, check if they work on devmuntain site. 
--- - CELLAR
+
+---CELLAR
 CREATE TABLE cellar (
     cellar_id SERIAL PRIMARY KEY, 
     drinker_id INT REFERENCES drinkers(drinker_id), 
@@ -40,13 +41,14 @@ CREATE TABLE cellar (
     rating INT
 ); 
 
-INSERT INTO cellar (notes, rating)
+INSERT INTO cellar (drinker_id, wine_id, notes, rating)
 VALUES
-('Full body, very smooth', 5), 
-('Full body, hints of cherry on the nose, light on sweetness', 4), 
-('Lighter in body, very smooth, not acidic', 4); 
+(1, 1, 'Full body, very smooth', 5), 
+(1, 2, 'Full body, hints of cherry on the nose, light on sweetness', 4), 
+(1, 3, 'Lighter in body, very smooth, not acidic', 4); 
 
 
+---SELECT
 SELECT * FROM drinkers; 
 SELECT * FROM wine; 
 SELECT * FROM cellar; 

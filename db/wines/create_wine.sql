@@ -1,12 +1,13 @@
-INSERT INTO cellar (drinker_id, brand, name, type, origin, notes)
-VALUES (${drinker_id}, ${brand}, ${name}, ${type}, ${origin}, ${notes}); 
+---THIS WILL CREATE A WINE TO ADD TO THE DASHBOARD
+    ---THERE WILL NOT BE A RATING OR NOTE SECTION HERE 
 
-SELECT c.cellar_id, c.brand, c.name, c.type, c.origin, c.notes, d.drinker_id
-FROM cellar c
-JOIN drinkers d
-ON c.drinker_id = d.drinker_id; 
+INSERT INTO wine (year, vineyard, name, color, origin)
+VALUES (${year}, ${vineyard}, ${name}, ${color}, ${origin}); 
 
+SELECT w.wine_id, w.year, w.vineyard, w.name, w.color, w.origin
+FROM wine w
+JOIN cellar c 
+ON c.wine_id = w.wine_id; 
+-- WHERE c.drinker_id = $1; 
 
--- - RUN THIS BY MENTORS 
-
--- - WHAT I WANT IT TO DO: USER WILL BE ABLE TO CREATE A SECTION FOR A NEW WINE TO DISPLAY THE BRAND, NAME, TYPE, ORIGIN, AND NOTES TO ADD TO ADD TO THEIR BOOKMARK/WINE CELLAR 
+--TODO CHECK WITH MENTOR TO SEE IF I NEED TO ADD IN LINE 11, OR IF IT SHOULD BE LEFT OUT 

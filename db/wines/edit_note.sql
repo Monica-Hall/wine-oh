@@ -1,9 +1,11 @@
-  
+---USER WILL BE ABLE TO UPDATE NOTE FROM WITHIN THEIR CELLAR 
+
 UPDATE cellar
 SET notes = ${notes}
 WHERE cellar_id = ${cellar_id}; 
 
-SELECT c.cellar_id, c.brand, c.name, c.type, c.origin, c.notes d.drinker_id
-FROM cellar c
-JOIN drinkers d
-ON c.drinker_id = d.drinker_id; 
+SELECT w.wine_id, w.year, w.vineyard, w.name, w.color, w.origin, c.notes, c.rating
+FROM wine w
+JOIN cellar c 
+ON c.wine_id = w.wine_id
+WHERE c.drinker_id = $1; 
