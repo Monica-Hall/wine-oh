@@ -8,12 +8,12 @@ const path = require('path');
 //-IMPORT VARIABLES 
 const {CONNECTION_STRING, SERVER_PORT, SESSION_SECRET} = process.env; 
 const {register, login, logout} = require("./controllers/authCtrl");
-const {getDash, getCellar, createWine, addToDash, addToCellar, editNote, deleteWine} = require("./controllers/wineCtrl"); 
+const {getDash, getCellar, createWine, editWine, deleteWine, addToCellar} = require("./controllers/wineCtrl"); 
 
 //-TOP LEVEL 
 const app = express(); 
 app.use(express.json()); 
-app.use( express.static( `${__dirname}/../build` )); 
+app.use(express.static( `${__dirname}/../build` )); 
 app.use(session({
     secret: SESSION_SECRET, 
     resave: false, 
@@ -31,7 +31,7 @@ massive({
     }
 }).then(db => {
     app.set("db", db)
-    // console.log("connected to db")
+    console.log("connected to db")
 }).catch(err => console.log(err)); 
 
 
@@ -53,15 +53,12 @@ app.get("/api/cellar", getCellar)
 //CREATE WINE
 app.post("/api/wine", createWine) 
 
-//ADD WINE TO DASHBOARD
-app.post("api/dash", addToDash) 
-
 //ADD WINE TO USER CELLAR
 app.post("api/cellar", addToCellar) 
 
 //-PUT
-//EDIT NOTE OF WINE FROM WITHIN CELLAR
-app.put("/api/note/:cellar_id", editNote)
+//EDIT NOTE AND RATING OF WINE FROM WITHIN CELLAR
+app.put("/api/note/:cellar_id", editWine)
 
 //-DELETE
 //DELETE WINE FROM CELLAR 
