@@ -58,7 +58,7 @@ app.post("api/cellar", addToCellar)
 
 //-PUT
 //EDIT NOTE AND RATING OF WINE FROM WITHIN CELLAR
-app.put("/api/note/:cellar_id", editWine)
+app.put("/api/wine/:cellar_id", editWine)
 
 //-DELETE
 //DELETE WINE FROM CELLAR 

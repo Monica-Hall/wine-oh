@@ -36,7 +36,7 @@ module.exports = {
             const {notes} = req.body; 
             const {drinker_id} = req.session.user; 
 
-            const wine = await db.wines.edit_wine({cellar_id, notes, drinker_id});
+            const wine = await db.wines.edit_wine({cellar_id, drinker_id, notes});
             res.status(200).send(wine); 
 
         } catch (error) {
