@@ -1,16 +1,16 @@
-//- IMPORT DEPENDENCIES 
+//-IMPORT DEPENDENCIES 
 require("dotenv").config(); 
 const express = require("express"); 
 const session = require("express-session"); 
 const massive = require("massive"); 
 const path = require('path'); 
 
-//- IMPORT VARIABLES 
+//-IMPORT VARIABLES 
 const {CONNECTION_STRING, SERVER_PORT, SESSION_SECRET} = process.env; 
 const {register, login, logout} = require("./controllers/authCtrl");
-const {createWine, addWine, getWines, editNote, deleteWine} = require("./controllers/wineCtrl"); 
+const {getDash, getCellar, createWine, addToDash, addToCellar, editNote, deleteWine} = require("./controllers/wineCtrl"); 
 
-//- TOP LEVEL 
+//-TOP LEVEL 
 const app = express(); 
 app.use(express.json()); 
 app.use( express.static( `${__dirname}/../build` )); 
@@ -23,7 +23,7 @@ app.use(session({
     }
 }))
 
-//- MASSIVE
+//-MASSIVE
 massive({
     connectionString: CONNECTION_STRING, 
     ssl: {
@@ -35,34 +35,37 @@ massive({
 }).catch(err => console.log(err)); 
 
 
-//- ENDPOINTS - AUTHORIZATION
+//-ENDPOINTS
+    //AUTHORIZATION
 app.post("/auth/register", register); 
 app.post("/auth/login", login); 
 app.delete("/auth/logout", logout);
 
-//- ENDPOINTS
+    //WINE 
+//-GET
+//DISPLAYS ALL WINES WITHIN DASHBOARD
+app.get("/api/dash", getDash)
 
-// //- GET
-//     // - GET ALL THE WINES FROM THE USERS BOOKMARK 
-// app.get("/api/wines", getWines)
+//DISPLAYS ALL WINES WITHIN USERS CELLAR
+app.get("/api/cellar", getCellar)
 
+//-POST
+//CREATE WINE
+app.post("/api/wine", createWine) 
 
-// // - POST
-//     // - CREATE WINE 
-// app.post("/api/create_wine", createWine) 
+//ADD WINE TO DASHBOARD
+app.post("api/dash", addToDash) 
 
-// 	//- ADD WINE TO BOOKMARK
-// app.post("api/add_wine", addWine) 
+//ADD WINE TO USER CELLAR
+app.post("api/cellar", addToCellar) 
 
+//-PUT
+//EDIT NOTE OF WINE FROM WITHIN CELLAR
+app.put("/api/note/:cellar_id", editNote)
 
-// //- PUT
-// 	// - EDIT THE NOTE ON THE WINE FROM THE USERS BOOKMARK 
-// app.put("/api/note/:cellar_id", editNote)
-
-
-// //- DELETE
-// 	// - DELETE WINE FROM BOOKMARK 
-// app.delete("/api/wine/:cellar_id", deleteWine)
+//-DELETE
+//DELETE WINE FROM CELLAR 
+app.delete("/api/wine/:cellar_id", deleteWine)
 
 
 //- SSH 
