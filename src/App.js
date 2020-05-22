@@ -7,7 +7,6 @@ import Dashboard from "./components/Dashboard/Dashboard";
 import Cellar from "./components/Cellar/Cellar";
 import Form from "./components/Form/Form";  
 
-
 function App() {
   return (
     <div className="App">
@@ -17,7 +16,6 @@ function App() {
         <Route path="/dashboard" component={Dashboard}/>
         <Route path="/cellar" component={Cellar}/>
         <Route path="/form" component={Form}/>
-        <Route />
       </Switch>
     </div>
   );
