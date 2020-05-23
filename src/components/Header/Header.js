@@ -1,12 +1,15 @@
 import React from "react"; 
-// import "./Header.css"; 
+import "./Header.css"; 
 
 const Header = () => {
     return (
         <header className="header">
-            <h1>Wine Oh!</h1>
-            <p>"Some call it a problem,</p>
-            <p>I call it a hobby."</p>
+            <h1 className="logo">Wine Oh!</h1>
+            <div >
+                <h4 className="slogan">Some call it a problem, 
+                <br/>
+                I call it a hobby.</h4>
+            </div>
         </header>
     )
 }

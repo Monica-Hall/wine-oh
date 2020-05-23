@@ -8,7 +8,7 @@ const GET_CELLAR = "GET_CELLAR";
 const ADD_TO_CELLAR = "ADD_TO_CELLAR"; 
 
 const initialState = {
-    data: null, 
+    data: [], 
     loading: false
 }
 
@@ -157,6 +157,7 @@ export function getDash() {
     }
 }
 
+//!should i be passing in a paramater, wine? 
 export function getCellar() {
     return {
         type: GET_CELLAR, 

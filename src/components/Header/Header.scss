@@ -1,0 +1,28 @@
+@import "../../Styles/colors.scss";
+
+.header {
+    width: 20vw; 
+    height: 100vh; 
+    background-image: url("../../Styles/img/header.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: $darkPink; 
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: 'Great Vibes', cursive;
+    letter-spacing: 0.1em;
+
+}
+
+.logo {
+    font-size: 60px;
+    margin-top: 10px;
+    text-shadow: 0px 6px 4px rgba(0, 0, 0, 0.25);
+}
+
+.slogan {
+    font-size: 30px;
+    margin-bottom: 0;
+}
