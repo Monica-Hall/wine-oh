@@ -30,34 +30,48 @@ class Login extends Component {
 
     render() {
         return (
-            <div>
+            <div className="login">
 
-                <h1>Sign In</h1>
+                <h1 className="login-header">Sign In</h1>
 
-                <form onSubmit={this.handleLogin}>
+                <br/>
 
-                    <label htmlFor="email">email: </label>
-                    <input
+                <form className="login-form" onSubmit={this.handleLogin}>
+
+                    <label className="login-label" htmlFor="email">Email: </label>
+                    <input className="login-input"
                         name="email"
                         type="text"
                         value={this.state.email}
                         onChange={this.handleChange}
                     />
 
-                    <label htmlFor="password">password: </label>
-                    <input
+                    <br/>
+                    <br/>
+
+                    <label className="login-label" htmlFor="password">Password: </label>
+                    <input className="login-input"
                         name="password"
                         type="text"
                         value={this.state.password}
                         onChange={this.handleChange}
                     />
 
-                    <button>Login</button>
+                    <br/>
+                    <br/>
+
+                    <button className="auth-button">Login</button>
                     
                 </form> 
 
-                <p>Want to be a Wine Oh!?</p>
-                <button onClick={this.props.toggle}>Register Here</button>
+
+                <br/>
+                <br/>
+                <br/>
+
+                <p className="for-register">Want to become a Wine Oh!?</p>
+                <button className="auth-button" onClick={this.props.toggle}>Register Here</button>
+
 
             </div>
         )

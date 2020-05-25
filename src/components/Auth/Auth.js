@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Login from "./Login"; 
 import Register from "./Register"; 
 import {Redirect} from "react-router-dom"; 
-// import "./Auth.css"; 
+import "./Auth.css"; 
 
 class Auth extends Component {
     constructor(props) {
