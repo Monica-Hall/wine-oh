@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import {Redirect, Link} from "react-router-dom"; 
 import {createWine} from "../../redux/reducers/wines"; 
 import { connect } from "react-redux";
-// import "./Form.css"; 
+import "./Form.css"; 
 
 class Form extends Component {
     constructor(props) {
@@ -48,7 +48,19 @@ class Form extends Component {
         })
     }
 
+    handleLogout = () => {
+        this.props.logout().then(({data}) => {
+            this.setState({
+                redirect: true
+            })
+        }).catch(err => {
+            console.log("logout error:", err)
+        })
+    }
+
     render() {
+        const {user} = this.props.users;
+
         const {redirect} = this.state
 
         if(redirect) {
@@ -56,74 +68,100 @@ class Form extends Component {
         }
 
         return (
-            <div>
+            <div className="form">
 
-                <form onSubmit={this.handleClick}>
-
-                    <h4>Add a Wine to our Wine List</h4>
+                <div className="holder">
                     
                     <div>
-                        <label htmlFor="year">Year:</label>
-                        <input 
+                        <ul>
+                            <Link to="/dashboard">View our Wine List</Link>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <ul>
+                            <Link to="/cellar">Go into your Wine Cellar</Link>
+                        </ul>
+                    </div>
+
+                    <div>
+                        {
+                            user 
+                            &&
+                            <button className="out-button" onClick={() => this.handleLogout()}>Sign Out</button>
+                        }
+                    </div>
+
+                </div>
+
+                    <hr/>
+                        <h4 
+                        className="form-header">Hello fellow Wine Oh!
+                        <br/>
+                        Add a Wine to our list
+                        </h4>
+                    <hr/>
+                    
+                    <br/>
+                    <br/>
+
+                <form className="form-block" onSubmit={this.handleClick}>
+
+                    
+                    
+                        <label className="form-label" htmlFor="year">Year:</label>
+                        <input className="form-input" 
                             name="year"
                             type="text"
                             value={this.state.year}
                             onChange={(e) => this.handleChange(e.target.name, e.target.value)}
                         />
-                    </div>
+                    
 
-                    <div>
-                        <label htmlFor="vineyard">Vineyard:</label>
-                        <input 
+                        <label className="form-label" htmlFor="vineyard">Vineyard:</label>
+                        <input className="form-input" 
                             name="vineyard"
                             type="text"
                             value={this.state.vineyard}
                             onChange={(e) => this.handleChange(e.target.name, e.target.value)}
                         />
-                    </div>
 
-                    <div>
-                        <label htmlFor="name">Grape:</label>
-                        <input
+                        <label className="form-label" htmlFor="name">Grape:</label>
+                        <input className="form-input"
                             name="name"
                             type="text"
                             value={this.state.name}
                             onChange={(e) => this.handleChange(e.target.name, e.target.value)}
                         />
-                    </div>
 
-                    <div>
-                    <label htmlFor="color">Color:</label>
-                    <input
+                    <label className="form-label" htmlFor="color">Color:</label>
+                    <input className="form-input"
                         name="color"
                         type="text"
                         value={this.state.color}
                         onChange={(e) => this.handleChange(e.target.name, e.target.value)}
                     />
-                    </div>
 
-                    <div>
-                    <label htmlFor="origin">Origin:</label>
-                    <input
+                    <label className="form-label" htmlFor="origin">Origin:</label>
+                    <input className="form-input"
                         name="origin"
                         type="text"
                         value={this.state.origin}
                         onChange={(e) => this.handleChange(e.target.name, e.target.value)}
                     />
-                    </div>
                     
-                        <button>Add</button>
+                        <button className="form-button">Add</button>
                 </form>
 
-               <div>
-               <ul>
-                    <Link to="/dashboard">View our Wine List</Link>
-                </ul>
-
+               {/* <div>
                 <ul>
-                        <Link to="/cellar">Go into your Wine Cellar</Link>
-                </ul>
-               </div>
+                        <Link to="/dashboard">View our Wine List</Link>
+                    </ul>
+
+                    <ul>
+                            <Link to="/cellar">Go into your Wine Cellar</Link>
+                    </ul>
+               </div> */}
 
             </div>
         )

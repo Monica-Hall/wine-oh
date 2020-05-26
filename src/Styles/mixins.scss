@@ -1,4 +1,4 @@
-  @mixin all-buttons {
+  @mixin auth-buttons {
     height: 30px; 
     width: 150px; 
     color: $darkPink; 
@@ -12,10 +12,20 @@
     letter-spacing: 0.1em;
     text-shadow: 0px 6px 4px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
-    margin: 20px;
+}
 
-    // &:hover {
-    //     border: 1px solid $lightPink; 
-    //     box-shadow: 0 0 30px $lightPink; 
-    // }
+@mixin dash-buttons {
+  height: 20px; 
+  width: 150px; 
+  color: $darkPink; 
+  background-color: white;
+  font-size: 18px; 
+  padding: 0 10px; 
+  padding-top: 1px;
+  border: none; 
+  font-family: 'Great Vibes', cursive;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-shadow: 0px 6px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
 }

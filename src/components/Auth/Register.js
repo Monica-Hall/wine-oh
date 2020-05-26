@@ -32,12 +32,17 @@ class Register extends Component {
     render() {
 
         return (
-            <div>
-                <h1>Register for an Account</h1>
-                
-                <form onSubmit={this.handleRegister}>
+            <div className="auth">
 
-                    <label htmlFor="name">Name:</label>
+                <hr/>
+                <h1 className="auth-header">Register</h1>
+                <hr/>
+
+                <br/>
+
+                <form className="auth-form" onSubmit={this.handleRegister}>
+
+                    <label className="auth-label" htmlFor="name">Name:</label>
                     <input
                     name="name"
                     type="text"
@@ -45,7 +50,10 @@ class Register extends Component {
                     onChange={this.handleChange}
                     />
 
-                    <label htmlFor="email">Email:</label>
+                    <br/>
+                    <br/>
+
+                    <label className="auth-label" htmlFor="email">Email:</label>
                     <input 
                     name="email"
                     type="text"
@@ -53,7 +61,10 @@ class Register extends Component {
                     onChange={this.handleChange}
                     />
 
-                    <label htmlFor="password">Password:</label>
+                    <br/>
+                    <br/>
+
+                    <label className="auth-label" htmlFor="password">Password:</label>
                     <input 
                     name="password"
                     type="text"
@@ -61,12 +72,15 @@ class Register extends Component {
                     onChange={this.handleChange}
                     />
 
-                    <button>Register</button>
+                    <br/>
+                    <br/>
+
+                    <button className="login-button">Register</button>
 
                 </form>
                 
-                <p>Already a Wine Oh!?</p>
-                <button onClick={this.props.toggle}>Sign In Here</button>
+                <p className="for-reg">Already a Wine Oh!?</p>
+                <button className="reg-button" onClick={this.props.toggle}>Login Here</button>
             </div>
         )
     }

@@ -153,11 +153,10 @@ export function deleteWine(id) {
 export function getDash() {
     return {
         type: GET_DASH, 
-        payload: axios.get("api/dash")
+        payload: axios.get("/api/dash")
     }
 }
 
-//!should i be passing in a paramater, wine? 
 export function getCellar() {
     return {
         type: GET_CELLAR, 
@@ -165,9 +164,9 @@ export function getCellar() {
     }
 }
 
-export function addToCellar() {
+export function addToCellar(id, body) {
     return {
         type: ADD_TO_CELLAR, 
-        payload: axios.post("/api/cellar")
+        payload: axios.post(`/api/cellar/${id}`, body)
     }
 }

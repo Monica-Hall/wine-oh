@@ -17,9 +17,9 @@ module.exports = {
         try {
             const db = req.app.get("db"); 
             const {cellar_id} = req.params 
-            const {drinker_id} = req.session.user; 
+            // const {drinker_id} = req.session.user; 
 
-            const wine = await db.wines.delete_wine({cellar_id, drinker_id}); 
+            const wine = await db.wines.delete_wine({cellar_id}); 
             res.status(200).send(wine); 
 
             
@@ -33,15 +33,15 @@ module.exports = {
         try {
             const db = req.app.get("db"); 
             const {cellar_id} = req.params; 
-            const {notes} = req.body; 
-            const {drinker_id} = req.session.user; 
+            const {notes, rating} = req.body; 
+            // const {drinker_id} = req.session.user; 
 
-            const wine = await db.wines.edit_wine({cellar_id, drinker_id, notes});
+            const wine = await db.wines.edit_wine({cellar_id, notes, rating});
             res.status(200).send(wine); 
 
         } catch (error) {
-            console.log("error editing note", error)
-            res.status(500).send("There was an error editing your note, please try again.")
+            console.log("error editing note and rating", error)
+            res.status(500).send("There was an error editing your note and rating, please try again.")
         }
     }, 
 
@@ -50,7 +50,6 @@ module.exports = {
             const db = req.app.get("db");
             // const {cellar_id} = req.params 
             // const {drinker_id} = req.session.user;
-            // console.log(req.session.user)
 
             const wine = await db.wines.get_cellar(); 
             res.status(200).send(wine); 
@@ -77,7 +76,7 @@ module.exports = {
     addToCellar: async(req, res) => {
         try {
             const db = req.app.get("db"); 
-            const {drinker_id} = req.session.user; 
+            const {drinker_id} = req.body; 
             const {wine_id} = req.params; 
 
             const wine = await db.wines.add_to_cellar({drinker_id, wine_id}); 

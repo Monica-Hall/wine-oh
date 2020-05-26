@@ -54,7 +54,7 @@ app.get("/api/cellar", getCellar)
 app.post("/api/wine", createWine) 
 
 //ADD WINE TO USER CELLAR
-app.post("api/cellar", addToCellar) 
+app.post(`/api/cellar/:wine_id`, addToCellar) 
 
 //-PUT
 //EDIT NOTE AND RATING OF WINE FROM WITHIN CELLAR

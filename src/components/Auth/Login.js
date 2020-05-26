@@ -30,16 +30,18 @@ class Login extends Component {
 
     render() {
         return (
-            <div className="login">
+            <div className="auth">
 
-                <h1 className="login-header">Sign In</h1>
-
+                <hr/>
+                <h1 className="auth-header">Sign In</h1>
+                <hr/>
+                
                 <br/>
 
-                <form className="login-form" onSubmit={this.handleLogin}>
+                <form className="auth-form" onSubmit={this.handleLogin}>
 
-                    <label className="login-label" htmlFor="email">Email: </label>
-                    <input className="login-input"
+                    <label className="auth-label" htmlFor="email">Email: </label>
+                    <input className="auth-input"
                         name="email"
                         type="text"
                         value={this.state.email}
@@ -49,8 +51,8 @@ class Login extends Component {
                     <br/>
                     <br/>
 
-                    <label className="login-label" htmlFor="password">Password: </label>
-                    <input className="login-input"
+                    <label className="auth-label" htmlFor="password">Password: </label>
+                    <input className="auth-input"
                         name="password"
                         type="text"
                         value={this.state.password}
@@ -60,7 +62,7 @@ class Login extends Component {
                     <br/>
                     <br/>
 
-                    <button className="auth-button">Login</button>
+                    <button className="login-button">Login</button>
                     
                 </form> 
 
@@ -69,8 +71,8 @@ class Login extends Component {
                 <br/>
                 <br/>
 
-                <p className="for-register">Want to become a Wine Oh!?</p>
-                <button className="auth-button" onClick={this.props.toggle}>Register Here</button>
+                <p className="for-reg">Want to become a Wine Oh!?</p>
+                <button className="reg-button" onClick={this.props.toggle}>Register Here</button>
 
 
             </div>
