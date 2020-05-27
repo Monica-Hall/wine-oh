@@ -1,6 +1,7 @@
 @import "../../Styles/colors.scss", "../../Styles/mixins.scss";
 
-.form {
+
+.cellar {
     color: white; 
     font-family: 'Great Vibes', cursive;
     display: flex;
@@ -12,33 +13,20 @@
     margin-top: 50px;
 }
 
-.form-header {
+.cellar-header {
     font-size: 50px;
     text-shadow: 0px 6px 4px rgba(0, 0, 0, 0.50);
     letter-spacing: 0.2em;
-    margin: 30px;
 }
 
-.form-block {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    width: 15vw;
-    height: 50vh;
-    padding: 10px;
+.cellar-button {
+    @include cellar-buttons;
 }
 
-.form-label {
+//!also works in cellar
+.small-header {
     font-size: 30px;
-    text-shadow: 0px 6px 4px rgba(0, 0, 0, 0.30);
-}
-
-.form-input {
-    height: 20px;
-}
-
-.form-button {
-    @include auth-buttons;
-    margin-left: 25%;
-    margin-top: 30px;
+    text-shadow: 0px 6px 4px rgba(0, 0, 0, 0.50);
+    letter-spacing: 0.15em;
+    margin-top: 0;
 }

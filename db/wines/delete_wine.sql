@@ -1,8 +1,7 @@
 ---DELETE WINE FROM THE USERS CELLAR 
 
 DELETE FROM cellar 
---! may have to change from cellar_id to wine_id
-WHERE cellar_id = ${cellar_id}; 
+WHERE wine_id = ${wine_id}; 
 
 SELECT w.wine_id, w.year, w.vineyard, w.name, w.color, w.origin, c.notes, c.rating
 FROM wine w

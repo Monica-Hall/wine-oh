@@ -16,10 +16,12 @@ module.exports = {
     deleteWine: async(req, res) => {
         try {
             const db = req.app.get("db"); 
-            const {cellar_id} = req.params 
-            // const {drinker_id} = req.session.user; 
-
-            const wine = await db.wines.delete_wine({cellar_id}); 
+            // const {cellar_id} = req.params 
+            const {wine_id} = req.params; 
+            const {drinker_id} = req.session.user; 
+            //-switched out cellar id for wine id 
+                //- still not working 
+            const wine = await db.wines.delete_wine({wine_id, drinker_id}); 
             res.status(200).send(wine); 
 
             
@@ -32,26 +34,26 @@ module.exports = {
     editWine: async(req, res) => {
         try {
             const db = req.app.get("db"); 
-            const {cellar_id} = req.params; 
+            // const {cellar_id} = req.params; 
             const {notes, rating} = req.body; 
-            // const {drinker_id} = req.session.user; 
+            const {wine_id} = req.params; 
+            const {drinker_id} = req.session.user; 
 
-            const wine = await db.wines.edit_wine({cellar_id, notes, rating});
+            const wine = await db.wines.edit_wine({wine_id, drinker_id, notes, rating});
             res.status(200).send(wine); 
 
         } catch (error) {
-            console.log("error editing note and rating", error)
-            res.status(500).send("There was an error editing your note and rating, please try again.")
+            console.log("error editing notes and rating:", error)
+            res.status(500).send("There was an error editing your notes and rating, please try again.")
         }
     }, 
 
     getCellar: async(req, res) => {
         try {
             const db = req.app.get("db");
-            // const {cellar_id} = req.params 
-            // const {drinker_id} = req.session.user;
+            const {drinker_id} = req.session.user;
 
-            const wine = await db.wines.get_cellar(); 
+            const wine = await db.wines.get_cellar({drinker_id}); 
             res.status(200).send(wine); 
 
         } catch (error) {

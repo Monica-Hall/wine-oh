@@ -67,7 +67,7 @@ class Register extends Component {
                     <label className="auth-label" htmlFor="password">Password:</label>
                     <input 
                     name="password"
-                    type="text"
+                    type="password"
                     value={this.state.password}
                     onChange={this.handleChange}
                     />

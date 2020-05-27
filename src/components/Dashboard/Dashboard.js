@@ -32,10 +32,8 @@ class Dashboard extends Component {
     }
 
     handleAdd(id) {
+        let body = {drinker_id: this.props.users.user.drinker_id}; 
 
-        let body = {
-            drinker_id: this.props.users.user.drinker_id
-        }
         this.props.addToCellar(id, body)
         alert("This wine has been added to your cellar")
     
@@ -89,7 +87,7 @@ class Dashboard extends Component {
                     </div>
 
                     <div>
-                        <ul className="dash-link">
+                        <ul>
                             <Link to="/cellar">View your Wine Cellar</Link>
                         </ul>
                     </div>
@@ -102,6 +100,14 @@ class Dashboard extends Component {
                         }
                     </div>
 
+                </div>
+
+                <div>
+                    {
+                        user
+                        &&
+                        <h3 className="small-header">Hello {this.props.users.user.name}</h3>
+                    }
                 </div>
                 
                 <hr/>
@@ -121,7 +127,6 @@ class Dashboard extends Component {
                             </div>
                             <br/>
                             <br/>
-                            {/* <button className="out-button" onClick={() => this.handleLogout()}>Sign Out</button> */}
                         </div>
                     }
                 </div>

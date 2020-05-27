@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {Redirect, Link} from "react-router-dom"; 
 import {createWine} from "../../redux/reducers/wines"; 
+import {logout} from "../../redux/reducers/users"; 
 import { connect } from "react-redux";
 import "./Form.css"; 
 
@@ -64,7 +65,7 @@ class Form extends Component {
         const {redirect} = this.state
 
         if(redirect) {
-            return <Redirect to="/dashboard"/>
+            return <Redirect to="/"/>
         }
 
         return (
@@ -80,7 +81,7 @@ class Form extends Component {
 
                     <div>
                         <ul>
-                            <Link to="/cellar">Go into your Wine Cellar</Link>
+                            <Link to="/cellar">View your Wine Cellar</Link>
                         </ul>
                     </div>
 
@@ -93,13 +94,17 @@ class Form extends Component {
                     </div>
 
                 </div>
+                        
+                <div>
+                    {
+                        user
+                        &&
+                        <h3 className="small-header">Hello {this.props.users.user.name}</h3>
+                    }
+                </div>
 
                     <hr/>
-                        <h4 
-                        className="form-header">Hello fellow Wine Oh!
-                        <br/>
-                        Add a Wine to our list
-                        </h4>
+                        <h1 className="form-header">Add to our Wine List</h1>
                     <hr/>
                     
                     <br/>
@@ -170,4 +175,4 @@ class Form extends Component {
 
 const mapStateToProps = state => state
 
-export default connect(mapStateToProps, {createWine})(Form)
+export default connect(mapStateToProps, {createWine, logout})(Form)

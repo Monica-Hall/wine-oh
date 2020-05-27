@@ -58,11 +58,11 @@ app.post(`/api/cellar/:wine_id`, addToCellar)
 
 //-PUT
 //EDIT NOTE AND RATING OF WINE FROM WITHIN CELLAR
-app.put("/api/wine/:cellar_id", editWine)
+app.put(`/api/wine/:wine_id`, editWine)
 
 //-DELETE
 //DELETE WINE FROM CELLAR 
-app.delete("/api/wine/:cellar_id", deleteWine)
+app.delete(`/api/wine/:wine_id`, deleteWine)
 
 
 //- SSH 
@@ -71,4 +71,4 @@ app.get('*', (req, res)=>{
 });
 
 //- SERVER LISTENING
-app.listen(SERVER_PORT, console.log(`Listening on port ${SERVER_PORT}, where all our dreams come true`));
+app.listen(SERVER_PORT, console.log(`Listening on port ${SERVER_PORT}, where we drink all day and party all night`));

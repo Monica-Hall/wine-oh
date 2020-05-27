@@ -1,5 +1,5 @@
 .dash {
-  color: #F8E1F2;
+  color: white;
   font-family: 'Great Vibes', cursive;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -47,7 +47,6 @@
   border: 2px solid #F8E1F2;
   border-radius: 5px;
   width: 325px;
-  color: white;
   font-family: 'Times New Roman', Times, serif;
 }
 
@@ -112,7 +111,8 @@ a {
   letter-spacing: 0.1em;
   font-size: 18px;
   border-radius: 5px;
-  padding: 10px;
+  padding: 6px;
   background-color: white;
+  text-decoration: none;
 }
 /*# sourceMappingURL=Dashboard.css.map */
