@@ -7,7 +7,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100%;
     width: 81vw; 
     margin-top: 50px;
     margin-left: 50px;
@@ -32,15 +32,13 @@
 .wines {
     font-size: 17px;
     margin: 10px;
-    // letter-spacing: 0.1em;
-    // border: 7px dotted $lightPink;
     border: 2px solid $lightPink;
     border-radius: 5px;
     width: 325px; 
     font-family: 'Times New Roman', Times, serif;
 }
 
-//!also works in cellar
+
 .per-wine > div {
     margin-left: 15px;
 }
@@ -52,7 +50,6 @@
 
 .dash-button {
     @include dash-buttons;
-    margin-left: 75px;
     margin-bottom: 10px;
     margin-top: 10px;
 }
@@ -72,8 +69,6 @@
     margin-top: 15px;
 }
 
-
-
 a {
     color: $darkPink;
     letter-spacing: 0.1em; 
@@ -84,3 +79,76 @@ a {
     text-decoration: none;
 }
 
+//- ---------------------------------------------
+//- RESPONSIVE DESIGN: IPAD PRO
+@media screen and (max-width: 1024px) {
+    .dash {
+        width: 100vw; 
+        margin-left: 0;
+        margin-top: 15vh;        
+    }
+    
+    .wines {
+        font-size: 20px;
+        width: 350px; 
+    }
+    
+    .dash-button {
+        height: 25px;
+    }
+    
+    .out-button {
+        @include auth-buttons;   
+        margin-top: 15px;
+    }
+}
+
+//- ---------------------------------------------
+//- RESPONSIVE DESIGN: iphone 6/7/8
+@media screen and (max-width: 414px) {   
+    .dash {
+        width: 100vw; 
+        margin-left: 0;
+        margin-top: 10vh;        
+    }
+
+    .dash-header {
+        font-size: 40px;
+    }
+    
+    //!also works in cellar
+    .mapped {
+        width: 90vw;
+    }
+    
+    //!also works in cellar
+    .wines {
+        font-size: 15px;
+    }
+    
+    .out-button {
+        width: 85px;
+        font-size: 14px;
+        height: 25px;
+        margin-left: 5px;
+    }
+
+    a {
+        font-size: 11px;
+        margin: 0;
+    }
+
+    .holder {
+        width: 100vw;
+    }
+
+}
+
+//- ---------------------------------------------
+//- RESPONSIVE DESIGN: iphone X
+@media screen and (max-width: 414px) {   
+
+    a {
+        font-size: 9px;
+    }
+}

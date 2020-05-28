@@ -43,7 +43,7 @@ class Register extends Component {
                 <form className="auth-form" onSubmit={this.handleRegister}>
 
                     <label className="auth-label" htmlFor="name">Name:</label>
-                    <input
+                    <input className="auth-input"
                     name="name"
                     type="text"
                     value={this.state.name}
@@ -54,7 +54,7 @@ class Register extends Component {
                     <br/>
 
                     <label className="auth-label" htmlFor="email">Email:</label>
-                    <input 
+                    <input className="auth-input"
                     name="email"
                     type="text"
                     value={this.state.email}
@@ -65,7 +65,7 @@ class Register extends Component {
                     <br/>
 
                     <label className="auth-label" htmlFor="password">Password:</label>
-                    <input 
+                    <input className="auth-input"
                     name="password"
                     type="password"
                     value={this.state.password}
@@ -74,8 +74,9 @@ class Register extends Component {
 
                     <br/>
                     <br/>
-
+                    <div className="button-holder">
                     <button className="login-button">Register</button>
+                    </div>
 
                 </form>
                 

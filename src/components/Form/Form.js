@@ -111,8 +111,6 @@ class Form extends Component {
                     <br/>
 
                 <form className="form-block" onSubmit={this.handleClick}>
-
-                    
                     
                         <label className="form-label" htmlFor="year">Year:</label>
                         <input className="form-input" 
@@ -154,19 +152,12 @@ class Form extends Component {
                         value={this.state.origin}
                         onChange={(e) => this.handleChange(e.target.name, e.target.value)}
                     />
-                    
-                        <button className="form-button">Add</button>
+
+                        <div className="button-holder">
+                            <button className="form-button">Add</button>
+                        </div>
+                            
                 </form>
-
-               {/* <div>
-                <ul>
-                        <Link to="/dashboard">View our Wine List</Link>
-                    </ul>
-
-                    <ul>
-                            <Link to="/cellar">Go into your Wine Cellar</Link>
-                    </ul>
-               </div> */}
 
             </div>
         )

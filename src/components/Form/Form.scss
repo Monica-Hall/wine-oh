@@ -40,6 +40,81 @@
 
 .form-button {
     @include auth-buttons;
-    margin-left: 25%;
     margin-top: 30px;
+}
+
+//- ---------------------------------------------
+//- RESPONSIVE DESIGN: IPAD PRO
+@media screen and (max-width: 1024px) {
+    .form {
+        width: 100vw; 
+        margin-left: 0;
+        margin-top: 15vh;
+    }
+    
+    .form-block {
+        justify-content: center;
+        width: 35vw;
+        height: 50vh;
+
+    }
+    
+    .form-label {
+        font-size: 40px;
+        margin-bottom: 15px;
+    }
+    
+    .form-input {
+        height: 30px;
+        margin-bottom: 15px;
+    }
+    
+    .form-button {
+        width: 200px;
+        height: 50px;
+        font-size: 30px;
+    }
+}
+
+//- ---------------------------------------------
+//- RESPONSIVE DESIGN: iphone 6/7/8
+@media screen and (max-width: 414px) {  
+    .form {
+        height: 100vh;
+        width: 81vw; 
+        margin: 0 auto;
+        // margin-top: 10vh;
+    }
+    
+    .form-header {
+        font-size: 25px;
+        margin: 10px;
+        // margin-bottom: 15px;
+        justify-content: space-around;
+    }
+    
+    .form-block {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        width: 35vw;
+        height: 40vh;
+        padding: 10px;
+        margin-left: 0;
+    }
+    
+    .form-label {
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+    
+    .form-input {
+        height: 20px;
+        width: 35vw;
+    }
+    
+    .form-button {
+        @include auth-buttons;
+        margin-top: 10px;
+    }
 }

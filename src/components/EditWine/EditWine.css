@@ -73,6 +73,7 @@
   color: #ED1E79;
   letter-spacing: 0.1em;
   padding: 2px;
+  background-color: white;
 }
 
 .cancel-button {
@@ -82,5 +83,37 @@
   padding: 2px;
   border: 1px solid white;
   background: #ED1E79;
+}
+
+@media screen and (max-width: 1024px) {
+  .edit-form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-bottom: 10px;
+  }
+  .rating-input {
+    height: 30px;
+    font-size: 18px;
+  }
+  .notes-input {
+    height: 30px;
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .rating-input {
+    height: 20px;
+    font-size: 16px;
+  }
+  .notes-input {
+    height: 20px;
+    font-size: 16px;
+  }
 }
 /*# sourceMappingURL=EditWine.css.map */

@@ -69,7 +69,9 @@ class Dashboard extends Component {
                         <div>{wine.name}</div>
                         <div>{wine.color}</div>
                         <div>{wine.origin}</div>
+                        <div className="button-holder">
                         <button className="dash-button" onClick={() => this.handleAdd(wine.wine_id)}>Add to Cellar</button>
+                        </div>
                     </div>
                 </div>
             )
@@ -80,13 +82,13 @@ class Dashboard extends Component {
                 
                 <div className="holder">
                     
-                    <div>
+                    <div className="link-holder">
                         <ul>
                             <Link to="/form">Add to our Wine List</Link>
                         </ul>
                     </div>
 
-                    <div>
+                    <div className="link-holder">
                         <ul>
                             <Link to="/cellar">View your Wine Cellar</Link>
                         </ul>

@@ -39,11 +39,17 @@ hr {
 
 .auth-input {
     height: 20px;
+    font-size: 18px;
+    color: $darkPink;
+}
+
+.button-holder {
+    display: flex;
+    justify-content: center;
 }
 
 .login-button {
     @include auth-buttons;
-    margin-left: 68px;
 }
 
 .reg-button {
@@ -55,5 +61,92 @@ hr {
     text-shadow: 0px 6px 4px rgba(0, 0, 0, 0.25);
     letter-spacing: 0.1em;
     color: white;
+}
 
+//- ---------------------------------------------
+//- RESPONSIVE DESIGN: IPAD PRO
+@media screen and (max-width: 1024px) {
+    .auth {
+        height: 100vh; 
+        width: 100vw;
+    }
+
+    .auth-form {
+        width: 50vw;
+    }
+    
+    .auth-label {
+        font-size: 35px;    
+    }
+    
+    .auth-input {
+        height: 40px;
+        font-size: 22px;
+    }
+    
+    .login-button {
+        @include auth-buttons;
+        margin-left: 0;
+        height: 50px;
+        font-size: 30px;
+        width: 370px;
+    }
+    
+    .reg-button {
+        @include auth-buttons;
+        height: 50px;
+        width: 370px;
+        font-size: 30px;
+    }
+    
+    .for-reg {
+        font-size: 40px;
+    }
+}
+
+//- ---------------------------------------------
+//- RESPONSIVE DESIGN: iphone 6/7/8
+@media screen and (max-width: 414px) {  
+    .auth {
+        margin-top: 30px;
+        width: 100vw;
+        justify-content: center;
+    }
+
+    .auth-form {
+        width: 50vw;
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+
+    .auth-header {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    
+    .auth-label {
+        font-size: 25px;    
+    }
+    
+    .auth-input {
+        height: 20px;
+        font-size: 18px;
+    }
+    
+    .login-button {
+        height: 30px;
+        font-size: 20px;
+        padding: 0;
+    }
+    
+    .reg-button {
+        @include auth-buttons;
+        height: 30px;
+        width: 200px;
+        font-size: 20px;
+    }
+    
+    .for-reg {
+        font-size: 22px;
+    }
 }

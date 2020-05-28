@@ -14,7 +14,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 100vh;
+  height: 100%;
   width: 81vw;
   margin-top: 50px;
   margin-left: 50px;
@@ -73,7 +73,6 @@
   letter-spacing: 0.1em;
   text-shadow: 0px 6px 4px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
-  margin-left: 75px;
   margin-bottom: 10px;
   margin-top: 10px;
 }
@@ -115,5 +114,72 @@ a {
   padding: 6px;
   background-color: white;
   text-decoration: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .dash {
+    width: 100vw;
+    margin-left: 0;
+    margin-top: 15vh;
+  }
+  .wines {
+    font-size: 20px;
+    width: 350px;
+  }
+  .dash-button {
+    height: 25px;
+  }
+  .out-button {
+    height: 30px;
+    width: 150px;
+    color: #ED1E79;
+    background-color: white;
+    font-size: 20px;
+    padding: 0 10px;
+    padding-top: 5px;
+    border: none;
+    font-family: 'Great Vibes', cursive;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-shadow: 0px 6px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    margin-top: 15px;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .dash {
+    width: 100vw;
+    margin-left: 0;
+    margin-top: 10vh;
+  }
+  .dash-header {
+    font-size: 40px;
+  }
+  .mapped {
+    width: 90vw;
+  }
+  .wines {
+    font-size: 15px;
+  }
+  .out-button {
+    width: 85px;
+    font-size: 14px;
+    height: 25px;
+    margin-left: 5px;
+  }
+  a {
+    font-size: 11px;
+    margin: 0;
+  }
+  .holder {
+    width: 100vw;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  a {
+    font-size: 9px;
+  }
 }
 /*# sourceMappingURL=Dashboard.css.map */

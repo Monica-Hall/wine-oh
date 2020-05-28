@@ -1,6 +1,5 @@
 @import "../../Styles/colors.scss", "../../Styles/mixins.scss";
 
-
 .cellar {
     color: white; 
     font-family: 'Great Vibes', cursive;
@@ -30,4 +29,36 @@
     text-shadow: 0px 6px 4px rgba(0, 0, 0, 0.50);
     letter-spacing: 0.15em;
     margin-top: 0;
+}
+
+//- ---------------------------------------------
+//- RESPONSIVE DESIGN: IPAD PRO
+@media screen and (max-width: 1024px) {
+    .cellar {
+        width: 100vw; 
+        margin-left: 0;
+        margin-top: 15vh;        
+
+    }
+}
+
+//- ---------------------------------------------
+//- RESPONSIVE DESIGN: iphone 6/7/8
+@media screen and (max-width: 414px) {  
+    .cellar-header {
+        font-size: 40px;
+
+    }
+    
+    .cellar-button {
+        @include cellar-buttons;
+    }
+    
+    //!also works in cellar
+    .small-header {
+        font-size: 20px;
+        text-shadow: 0px 6px 4px rgba(0, 0, 0, 0.50);
+        letter-spacing: 0.15em;
+        margin-top: 0;
+    }
 }

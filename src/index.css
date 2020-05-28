@@ -6,4 +6,11 @@ body {
   width: calc(81vw - 19vw);
 }
 
+/*- RESPONSIVE DESIGN: IPAD PRO */
+@media screen and (max-width: 1024px) {
+  body {
+    width: 100vw;
+  }
+}
+
 

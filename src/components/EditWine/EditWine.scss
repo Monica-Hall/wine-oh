@@ -2,7 +2,6 @@
 
 .edit {
     color: white; 
-    // font-family: 'Great Vibes', cursive;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -49,6 +48,7 @@
     color: $darkPink;
     letter-spacing: 0.1em;
     padding: 2px;
+    background-color: white;
 }
 
 .cancel-button {
@@ -58,5 +58,38 @@
     padding: 2px;
     border: 1px solid white;
     background: $darkPink;
+}
 
+//- ---------------------------------------------
+//- RESPONSIVE DESIGN: IPAD PRO
+@media screen and (max-width: 1024px) {
+    .edit-form {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+    }
+    
+    .rating-input {
+        height: 30px;
+        font-size: 18px;
+    }
+    
+    .notes-input {
+        height: 30px;
+        font-size: 18px;
+    }
+}
+
+//- ---------------------------------------------
+//- RESPONSIVE DESIGN: iphone 6/7/8
+@media screen and (max-width: 414px) {  
+    .rating-input {
+        height: 20px;
+        font-size: 16px;
+    }
+    
+    .notes-input {
+        height: 20px;
+        font-size: 16px;
+    }
 }
