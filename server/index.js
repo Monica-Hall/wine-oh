@@ -9,6 +9,7 @@ const path = require('path');
 const {CONNECTION_STRING, SERVER_PORT, SESSION_SECRET} = process.env; 
 const {register, login, logout} = require("./controllers/authCtrl");
 const {getDash, getCellar, createWine, editWine, deleteWine, addToCellar} = require("./controllers/wineCtrl"); 
+const {email} = require("./controllers/mailerCtrl")
 
 //-TOP LEVEL 
 const app = express(); 
@@ -64,6 +65,8 @@ app.put(`/api/wine/:wine_id`, editWine)
 //DELETE WINE FROM CELLAR 
 app.delete(`/api/wine/:wine_id`, deleteWine)
 
+//-NODEMAILER
+app.post("/api/email", email);
 
 //- SSH 
 app.get('*', (req, res)=>{
@@ -71,4 +74,4 @@ app.get('*', (req, res)=>{
 });
 
 //- SERVER LISTENING
-app.listen(SERVER_PORT, console.log(`Listening on port ${SERVER_PORT}, where we drink all day and party all night`));
+app.listen(SERVER_PORT, console.log(`Drinking on port ${SERVER_PORT}, where we drink all day and party all night`));

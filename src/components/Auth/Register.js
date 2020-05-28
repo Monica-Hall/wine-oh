@@ -1,6 +1,7 @@
 import React, {Component} from "react"; 
 import {connect} from "react-redux"; 
 import {register} from "../../redux/reducers/users"; 
+import axios from "axios";
 
 class Register extends Component {
     constructor(props) {
@@ -17,6 +18,11 @@ class Register extends Component {
         e.preventDefault()
         this.props.register(this.state).then(() => {
             this.props.redirect()
+            
+            const {email: userEmail, name} = this.state;
+            axios.post("/api/email", {userEmail, name}).then(() => {
+            })
+
         }).catch(err => {
             console.log("register error:", err)
         })
@@ -86,5 +92,6 @@ class Register extends Component {
         )
     }
 }
+
 
 export default connect(null, {register})(Register); 

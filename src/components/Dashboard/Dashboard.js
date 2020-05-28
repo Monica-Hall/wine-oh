@@ -17,13 +17,6 @@ class Dashboard extends Component {
         this.handleAdd = this.handleAdd.bind(this)
     }
 
-    // componentDidUpdate(prevProps){
-        
-    //     if (this.props.user && !prevProps.user){
-    //         this.props.getDash()
-    //     }
-    // }
-
     componentDidMount() {
         this.props.getDash()
         .catch(err => {
@@ -37,9 +30,6 @@ class Dashboard extends Component {
         this.props.addToCellar(id, body)
         alert("This wine has been added to your cellar")
     
-        // this.setState({
-        //     wines: []
-        // })
     }
 
     handleLogout = () => {
