@@ -1,0 +1,62 @@
+@import "../../Styles/colors.scss", "../../Styles/mixins.scss";
+
+.edit {
+    color: white; 
+    // font-family: 'Great Vibes', cursive;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-button {
+    @include edit-buttons;
+}
+
+.edit-form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.rating-input {
+    margin: 4px;
+    width: 40px;
+    color: $darkPink;
+    border: none;
+    height: 20px;
+    font-size: 12px;
+    border-radius: 2px;
+    padding: 2px;
+
+}
+
+.notes-input {
+    margin: 4px;
+    width: 210px;
+    color: $darkPink;
+    border: 1px solid white;
+    height: 20px;
+    font-size: 12px;
+    border-radius: 2px;
+    padding: 2px;
+}
+
+.save-button {
+    border: none; 
+    border-radius: 2px;
+    height: 24px;
+    color: $darkPink;
+    letter-spacing: 0.1em;
+    padding: 2px;
+}
+
+.cancel-button {
+    border-radius: 2px;
+    color: white;
+    letter-spacing: 0.1em;
+    padding: 2px;
+    border: 1px solid white;
+    background: $darkPink;
+
+}

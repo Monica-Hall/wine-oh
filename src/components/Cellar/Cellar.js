@@ -4,7 +4,7 @@ import {Redirect, Link} from "react-router-dom";
 import {deleteWine} from "../../redux/reducers/wines"; 
 import {logout} from "../../redux/reducers/users"; 
 import {connect} from "react-redux";
-// import EditWine from "../EditWine/EditWine"; 
+import EditWine from "../EditWine/EditWine"; 
 import "./Cellar.css";
 
 
@@ -15,9 +15,6 @@ class Cellar extends Component {
         this.state = {
             user: {}, 
             wines: [], 
-            rating: "", 
-            notes: "", 
-            edit: false,
             redirect: false
         }
     }
@@ -56,12 +53,7 @@ class Cellar extends Component {
         })
     }
 
-    toggleEdit = () => {
-        let {edit} = this.state; 
-        this.setState({
-            edit: !edit
-        })
-    }
+    
 
     render() {
         const {user} = this.props.users; 
@@ -73,18 +65,27 @@ class Cellar extends Component {
 
         const mappedWines = this.state.wines.map(wine => {
             return (
-                <div className="wines">
-                    <div className="per-wine" key={wine.wine_id}>
+
+                <div className="wines"key={wine.wine_id}>
+
+                        
+
+                    <div className="per-wine">
                         <div className="year">{wine.year}</div>
                         <div>{wine.vineyard}</div>
                         <div>{wine.name}</div>
                         <div>{wine.color}</div>
                         <div>{wine.origin}</div>
-                        <div>{wine.rating}</div>
-                        <div>{wine.notes}</div>
-                        {/* <br/> */}
+                        <div>Rating: {wine.rating}</div>
+                        <div>Notes: {wine.notes}</div>
                         <button className="cellar-button" onClick={() => this.handleDelete(wine.wine_id)}>Delete from Cellar</button>
                     </div>
+
+                    <EditWine
+                        wine={wine}
+                        getCellar={this.getCellar}
+                    />
+                    
                 </div>
             )
         })

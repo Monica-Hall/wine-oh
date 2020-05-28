@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {editWine} from "../../redux/reducers/wines"; 
 import {connect} from "react-redux"; 
-//import "./EditWine.css"; 
+import "./EditWine.css"; 
 
 class EditWine extends Component {
     constructor(props) {
@@ -9,7 +9,8 @@ class EditWine extends Component {
 
         this.state = {
             rating: "", 
-            notes: ""
+            notes: "", 
+            edit: false
         }
     }
 
@@ -27,59 +28,68 @@ class EditWine extends Component {
         })
     }
 
+    toggleEdit = () => {
+        let {edit} = this.state; 
+        this.setState({
+            edit: !edit
+        })
+    }
+
     handleSubmit = (e) => {
         e.preventDefault(); 
         let {rating, notes} = this.state; 
         this.props.editWine(this.props.wine.wine_id, {rating, notes}).then(() => {
-            this.props.toggleEdit()
+            this.toggleEdit()
             this.props.getCellar()
         }).catch(err => {
             console.log("error editing wine:", err)
         })
     }
     
-
     render() {
-        // console.log(this.props)
 
         return (
-            <div>
-             
-                <form onSubmit={this.handleSubmit}>
+            
+            <div className="edit">
+                <button className="edit-button" onClick={()=> this.toggleEdit()}>Edit</button>
 
-                    <input
-                    name="rating"
-                    type="range" list="dl"
-                    value={this.state.rating}
-                    onChange={(e) => this.handleChange(e.target.name, e.target.value)}
-                    />
-                    <datalist id="dl">
-                        <option>1</option>
-                        <option>1.5</option>
-                        <option>2</option>
-                        <option>2.5</option>
-                        <option>3</option>
-                        <option>3.5</option>
-                        <option>4</option>
-                        <option>4.5</option>
-                        <option>5</option>
-                    </datalist>
+                {
+                    this.state.edit
+                    &&
+                    <div className="edit-form">
 
-                    <input
-                    name="notes"
-                    type="text"
-                    value={this.state.notes}
-                    onChange={(e) => this.handleChange(e.target.name, e.target.value)}
-                    />
-                    <button>Save</button>
+                        <form onSubmit={this.handleSubmit}>
 
-                </form>
+                            <input className="rating-input"
+                            name="rating"
+                            type="number"
+                            id="rating"
+                            min="0"
+                            max="5"
+                            value={this.state.rating}
+                            onChange={(e) => this.handleChange(e.target.name, e.target.value)}
+                            />
 
-                <button onClick={this.props.toggleEdit}>Cancel</button>
+                            <input className="notes-input"
+                            name="notes"
+                            type="text"
+                            value={this.state.notes}
+                            onChange={(e) => this.handleChange(e.target.name, e.target.value)}
+                            />
+                            <button className="save-button">Save</button>
+
+                            </form>
+
+                            <button className="cancel-button" onClick={this.toggleEdit}>Cancel</button>
+
+                    </div>
+                }
 
             </div>
+    
         )
     }
 }
 
 export default connect(null, {editWine})(EditWine)
+

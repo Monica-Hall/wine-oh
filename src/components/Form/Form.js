@@ -104,7 +104,7 @@ class Form extends Component {
                 </div>
 
                     <hr/>
-                        <h1 className="form-header">Add to our Wine List</h1>
+                        <h1 className="form-header">Add a Wine to our List</h1>
                     <hr/>
                     
                     <br/>

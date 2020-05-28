@@ -2,7 +2,8 @@ body {
   display: flex; 
   flex-direction: column;
   background-color: #ED1E79;
-  margin: 0;
+  margin: 0 auto;
+  width: calc(81vw - 19vw);
 }
 
 
