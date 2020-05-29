@@ -37,8 +37,8 @@ class Form extends Component {
             color: "", 
             origin: ""
         })
-
-        this.toggleRedirect()
+        alert("Thank you! This wine has been added to our list.")
+        // this.toggleRedirect()
     }
 
     toggleRedirect = () => {
